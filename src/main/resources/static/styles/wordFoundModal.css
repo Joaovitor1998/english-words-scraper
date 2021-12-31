@@ -1,0 +1,62 @@
+.modal-wrapper{
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    z-index: 1;
+    overflow: scroll;
+}
+.modal{
+    background-color: aliceblue;
+    width: 80%;
+    margin: 3% auto;
+}
+.modal-header{
+    background-color: orange;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.modal-header div{
+    display: flex;
+    margin: auto;
+}
+.modal-header h1{
+    margin: auto;
+    margin-right: 25px;
+}
+.modal-header div span{
+    align-self: center;;
+    margin: 5px;
+}
+i{
+    cursor: pointer;
+}
+.modal-close{
+    align-self: center;
+    margin-right: 10px;
+}
+.modal-data{
+    padding: 10px;
+    margin: 20px 5px 20px 5px;
+    font-size: 20px;
+}
+.example{
+    margin-top: 10px;
+    margin-bottom: 30px
+}
+:not(.word-found:first-child) > .word-phonetic:first-child{
+    margin-top: 30px;
+}
+.word-found + :not(.word-found:first-child) span{
+    display: none;
+}
+
+.add-word-known{
+    color: red;
+}
+.mark-as-known{
+    color: green;
+}

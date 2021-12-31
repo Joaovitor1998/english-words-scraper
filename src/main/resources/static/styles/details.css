@@ -1,0 +1,36 @@
+*{
+    font-weight: bolder;
+}
+#header{
+    margin:20px;
+    padding: 10px;
+    background-color: orange;
+    text-align: center;
+}
+
+#text{
+    padding: 10px;
+    margin: 20px 30px 20px 30px;
+    text-align: justify;
+}
+
+.word-list-info{
+    background-color: orange;
+    margin: 50px 20px 30px 20px;
+    padding: 10px;
+    text-align: center;   
+}
+
+#word-list{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin: 30px;
+}
+
+.word-container{
+    width: 20%;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}

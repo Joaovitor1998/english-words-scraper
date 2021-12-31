@@ -1,0 +1,15 @@
+<head th:fragment="head(title)" th:with="css=${css} ?: 'home'">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/styles/fragments.css}">
+    <link rel="stylesheet" th:href="'/styles/' + ${css} + '.css'">
+    <link rel="stylesheet" th:href="@{/styles/wordFoundModal.css}">
+    <link rel="stylesheet" th:href="@{/styles/main.css}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title th:text="${title}"></title>
+</head>
+
+<nav th:fragment="navbar">
+    <a th:href="@{/}">Home</a>
+</nav>

@@ -1,0 +1,47 @@
+<div class="modal" th:fragment="word-meaning-response">
+    <div class="modal-content">
+        <div th:each="word: ${words}" class="word-found">
+
+            <!-- MODEL HEADER -->
+            <div class="modal-header">
+                <div>
+                    <h1 
+                    th:if="${word.phonetic} != null" 
+                    th:text="${word.word} + ' /' + ${word.phonetic} + '/'"
+                    ></h1>
+                    <h1
+                        th:if="${word.phonetic} == null"
+                        th:text="${word.word}"
+                    ></h1>
+                    <span class="add-word-known">
+                        <i class="material-icons">done</i>
+                    </span>
+                    <span class="add-word-learn">
+                        <i class="material-icons">add</i>
+                    </span>
+                </div>
+                
+                <span class="modal-close">
+                    <i class="material-icons">clear</i>
+                </span>
+            </div>
+            
+            <div class="modal-data">
+                <div class="meanings">
+                    <div class="meaning" th:each="meaning : ${word.meanings}">
+
+                        <div class="definitions" th:each="definition : ${meaning.definitions}">
+                            <div class="definition">
+                                <p th:text="'Definition (' + ${meaning.partOfSpeech} + ') : ' + ${definition.definition}"></p>
+                            </div>
+                            <div class="example">
+                                <p th:if="${definition.example} != null" 
+                                th:text="'Example : ' + ${definition.example}"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

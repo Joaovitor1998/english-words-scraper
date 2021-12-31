@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head th:replace="fragments :: head(title='News Details', css='details')"></head>
+<body>
+    <nav th:replace="fragments :: navbar"></nav>
+
+    <article>
+        <div id="header">
+            <h1 class="title" th:text="${title}"></h1>
+        </div>
+
+        <div id="text">
+            <p th:each="paragraph : ${text}"
+            th:text="${paragraph}"></p>
+        </div>
+
+        <div class="word-list-info">
+            <h3 th:text="'Word list - ' + ${#lists.size(words)}"></h3>
+        </div>
+        <div id="word-list">
+            <div class="word-container" th:each="word : ${words}">
+                <p th:text="${word}" class="word"></p>
+            </div>
+        </div>
+    </article>
+
+    <script src="/js/main.js" type="module"></script>
+</body>
+</html>
