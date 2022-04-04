@@ -56,7 +56,7 @@ The following list were used for this project:
 - [x] Check a news content and vocabulary
 - [x] Click on a word to see its meaning in a Modal
 
-<h4 align="center"> 🚧 React Select 🚀 Em construção... 🚧 </h4>
+<h4 align="center"> 🚧 Under construction... 🚧 </h4>
 
 
 ### Author
