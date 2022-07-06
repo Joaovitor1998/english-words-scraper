@@ -9,8 +9,6 @@
 <p align="center">
  <a href="#requirements">Requirements</a> •
  <a href="#running">Running the App</a> • 
- <a href="#techs">Technologies</a> • 
- <a href="#features">Features</a> 
 </p>
 
 
@@ -18,8 +16,6 @@
 ### <p id="requirements">Requirements</p>
 Before you start, make sure you have installed:
 [Git](https://git-scm.com), [Java](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html) and [Maven](https://maven.apache.org/)
-Note that Maven requires JDK for compilation. Also, for this project I am using JDK 11
-
 
 
 ### <p id="running">Running project</p>
@@ -33,28 +29,8 @@ Note that Maven requires JDK for compilation. Also, for this project I am using 
 # Run the app using Maven
  $ mvn spring-boot:run
 
-# The server will be available at Spring Boot's default port:8080 - access localhost:8080
-```
+# The server will be available at port:8089
 
-
-
-### <p id="techs">🛠 Technologies</p>
-The following list were used for this project:
-- [Java](https://www.java.com/) - JDK 11
-- [Spring Boot](https://spring.io/projects/spring-boot)
-- [Spring MVC](https://docs.spring.io/spring-framework/docs/current/reference/html/web.html)
-- [Spring Data JPA](https://spring.io/projects/spring-data)
-- [Hibernate](https://hibernate.org/)
-- [H2 Database](https://www.h2database.com/html/main.html)
-- [Thymeleaf](https://www.thymeleaf.org/)
-- [HtmlUnit – sourceforge.io](https://htmlunit.sourceforge.io/)
-
-
-
-### <p id="features">Features</p>
-- [x] List all available news
-- [x] Check a news content and vocabulary
-- [x] Click on a word to see its meaning in a Modal
 
 <h4 align="center"> 🚧 Under construction... 🚧 </h4>
 
