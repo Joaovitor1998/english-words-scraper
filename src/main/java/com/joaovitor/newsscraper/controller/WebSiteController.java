@@ -1,37 +1,34 @@
 package com.joaovitor.newsscraper.controller;
 
-import com.joaovitor.newsscraper.channels.ChannelOneDetailsCarrier;
+import com.joaovitor.newsscraper.models.NewsDetails;
+import com.joaovitor.newsscraper.models.NewsInfo;
 import com.joaovitor.newsscraper.service.WebSiteService;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
+@RequestMapping("/news")
 public class WebSiteController {
 
     @Autowired
     private WebSiteService webSiteService;
 
-    @GetMapping("/")
-    public String homePage(Model model) {
-        model.addAttribute("recentNews", webSiteService.getListOfRecentNews());
-        return "home";
+    @GetMapping
+    public List<NewsInfo> homePage() {
+        return this.webSiteService.getListOfRecentNews();
     }
 
-    @GetMapping("/news/{url}")
-    public String newsDetailsPage(@PathVariable String url, Model model) {
+    @GetMapping("/{id}")
+    public NewsDetails newsDetailsPage(@PathVariable Long id) {
 
-        ChannelOneDetailsCarrier info = webSiteService.getNewsDetails(url);
+        return webSiteService.getNewsDetails(id);
 
-        model.addAttribute("title", info.getTitle());
-        model.addAttribute("text", info.getText());
-        model.addAttribute("words", info.getWords());
-        return "details";
     }
 
 }

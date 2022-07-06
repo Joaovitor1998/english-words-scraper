@@ -1,40 +1,38 @@
 package com.joaovitor.newsscraper.service;
 
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
-import com.joaovitor.newsscraper.channels.ChannelOneDetailsCarrier;
-import com.joaovitor.newsscraper.channels.ChannelOneDetails;
-import com.joaovitor.newsscraper.channels.ChannelOne;
-import com.joaovitor.newsscraper.scrapers.ScraperUtils;
+import com.joaovitor.newsscraper.models.NewsDetails;
+import com.joaovitor.newsscraper.models.NewsInfo;
+import com.joaovitor.newsscraper.scrapers.NewsDetailsScraper;
+import com.joaovitor.newsscraper.scrapers.NewsInfoScraper;
 
 import org.springframework.stereotype.Service;
 
 @Service
 public class WebSiteService {
 
-    private ChannelOne channelOne;
+    private NewsInfoScraper info;
 
-    public WebSiteService(ChannelOne channelOne) {
-        this.channelOne = channelOne;
+    private NewsDetailsScraper details;
+
+    public WebSiteService(NewsInfoScraper info, NewsDetailsScraper details) {
+        this.info = info;
+        this.details = details;
     }
 
     // Home Page
-    public Map<String, String> getListOfRecentNews() {
-        return channelOne.getRecentNewsInfo();
+    public List<NewsInfo> getListOfRecentNews() {
+        return this.info.getRecentNews();
     }
 
     // Details Page
-    public ChannelOneDetailsCarrier getNewsDetails(String url) {
-        String href = channelOne.convertTitleToHref(url);
+    public NewsDetails getNewsDetails(Long id) {
+        String linkFromId = info.getById(id).get().getUrl();
+        this.details.setPage(linkFromId);
 
-        ChannelOneDetails details = new ChannelOneDetails();
-        details.setPage(href);
-        String title = details.getTitle();
-        List<String> text = details.getText();
-        Set<String> words = ScraperUtils.lookUpForWords(text);
-        return new ChannelOneDetailsCarrier(title, text, words);
+        return this.details.getDetails();
+
     }
 
 }
